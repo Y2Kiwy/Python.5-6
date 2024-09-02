@@ -5,7 +5,7 @@ from pathlib import Path
 
 import PyPDF2
 
-# import textract ---> Cannot use due to an error while installing the packet
+# import textract ---> Cannot use due to an error while installing the package
 
 # start_dir: str = input("Enter the directory from which to start the search: ")
 # keyword: str = input("Enter the keyword to search: ")
@@ -106,4 +106,4 @@ for root, subdirs, filenames in os.walk(start_dir):
                 print(f"Keyword found in filecontent of: '{filename}'")
                 keyword_counter += 1
 
-# Page 11
+# Page 11 of 'CercaStringaStepByStep.pdf'
