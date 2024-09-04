@@ -1,0 +1,30 @@
+version: '3'  # Specify the Docker Compose version to use
+
+services:  # Define the services that will be part of the application
+    mongo:
+      image: mongo  # Use the official MongoDB image from Docker Hub
+      restart: always  # Always restart the container if it stops unexpectedly
+      volumes:
+        - localdatabase:/data/db  # Persist MongoDB data in a named volume
+      networks:
+        - composenetwork  # Connect the MongoDB container to the specified network
+
+    mongo-express:
+      image: mongo-express  # Use the official mongo-express image from Docker Hub
+      restart: always  # Always restart the container if it stops unexpectedly
+      ports:
+        - 8081:8081  # Map port 8081 on the host to port 8081 in the container
+      environment:
+        - ME_CONFIG_MONGODB_SERVER=mongo  # Set the MongoDB server to connect to (defined in services)
+        - ME_CONFIG_MONGODB_PORT=27017  # Set the MongoDB server port
+      networks:
+        - composenetwork  # Connect the mongo-express container to the specified network
+      depends_on:
+        - mongo  # Ensure mongo service starts before mongo-express
+
+volumes:
+  localdatabase:  # Define a named volume to persist MongoDB data
+
+networks:
+  composenetwork:
+    driver: bridge  # Use the bridge driver to create an isolated network for the containers
