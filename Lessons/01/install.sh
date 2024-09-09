@@ -11,4 +11,4 @@ source myvenv/bin/activate
 
 pip install -r requirements.txt
 
-python find_keywords.py
+python3 find_keywords.py
