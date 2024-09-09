@@ -1,14 +1,10 @@
-mkdir myScript
+mkdir $HOME/myScript
 
-mv find_keywords.py myScript/
-mv requirements.txt myScript/
+cp find_keyword.py $HOME/myScript/
+cp requirements.txt $HOME/myScript/
 
-cd myScript
+python3 -m venv $HOME/myScript/myvenv
 
-python3 -m venv myvenv
-
-source myvenv/bin/activate
+source $HOME/myScript/myvenv/bin/activate
 
 pip install -r requirements.txt
-
-python3 find_keywords.py
