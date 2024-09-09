@@ -30,7 +30,12 @@ def process_packet(pkt: Packet):
 
         # Check if the packet is HTTP
         if pkt[IP].sport == 80 or pkt[IP].dport == 80:
-            print("It's an HTTP packet\n")
+
+            # Check if it's a request or response
+            if pkt[IP].sport == 80:
+                print("It's an HTTP response\n")
+            else:
+                print("It's an HTTP request\n")
         
         # Check if the packet is HTTPS (TLS)
         elif pkt[IP].sport == 443 or pkt[IP].dport == 443:
