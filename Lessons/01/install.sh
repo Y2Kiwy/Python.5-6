@@ -3,8 +3,10 @@ mkdir $HOME/myScript
 cp find_keyword.py $HOME/myScript/
 cp requirements.txt $HOME/myScript/
 
-python3 -m venv $HOME/myScript/myvenv
+cd $HOME/myScript/
 
-source $HOME/myScript/myvenv/bin/activate
+python3 -m venv myvenv
+
+source myvenv/bin/activate
 
 pip install -r requirements.txt
