@@ -6,7 +6,7 @@ from scapy.sendrecv import sniff  # Import the sniff function
 iPkt: int = 0
 
 # Define a function to process each captured packet
-def process_packet(pkt: 'Packet'):
+def process_packet(pkt: Packet):
     # Use the global variable iPkt within the function
     global iPkt
     
@@ -14,14 +14,14 @@ def process_packet(pkt: 'Packet'):
     iPkt += 1
     
     # Print a message showing the number of TCP packets read
-    print(f"I've read a TCP packet on your PC: {iPkt} {type(pkt)}")
+    print(f"I've read a TCP packet on your PC: {iPkt}")
 
     # Check if the packet contains an IP layer, return if it doesn't
     if not pkt.haslayer(IP):
         return
     
     # Extract the source and destination IP addresses and the protocol, then store them in a string
-    ip_layer = "IP_SRC: " + pkt[IP].src + " IP_DST: " + pkt[IP].dst + " PROTO: " + str(pkt[IP].proto)
+    ip_layer: str = f"IP_SRC: {pkt[IP].src} - IP_DST: {pkt[IP].dst} - PROTO: {pkt[IP].proto} - IP_LEN: {pkt[IP].len}\n"
     
     # Print the IP source, destination, and protocol information
     print(ip_layer)
