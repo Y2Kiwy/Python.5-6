@@ -5,8 +5,8 @@ cp requirements.txt $HOME/myScript/
 
 cd $HOME/myScript/
 
-python3 -m venv myvenv
+python3 -m venv .venv
 
-source myvenv/bin/activate
+source .venv/bin/activate
 
 pip install -r requirements.txt
