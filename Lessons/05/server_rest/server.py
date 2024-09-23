@@ -1,5 +1,5 @@
-import requests
 from flask import Flask, jsonify
+import requests
 
 api = Flask(__name__)
 
