@@ -66,6 +66,8 @@ def check_permissions(user: dict, action: str) -> bool:
     """
     return user["rights"].get(action, False)
 
+
+
 # Operation 1: Add citizen ----------------------------------------------------
 @api.route(rule='/add_citzen', methods=['POST'])
 def add_citzen() -> None:
@@ -96,6 +98,8 @@ def add_citzen() -> None:
 
 # ----------------------------------------------------------------------------
 
+
+
 # Operation 2: View citizens -------------------------------------------------
 @api.route('/view_citzens', methods=['GET'])
 def view_citzens() -> None:
@@ -113,6 +117,8 @@ def view_citzens() -> None:
         # Return the list of all citizens
         return jsonify(citzens)
 # ----------------------------------------------------------------------------
+
+
 
 # Operation 3: Edit citizen --------------------------------------------------
 @api.route('/edit_citzen/<id>', methods=['PUT'])
@@ -133,7 +139,6 @@ def edit_citzen(id: str):
         
         # Search for the citizen by ID
         for citzen in citzens:
-            print(f"Searching {id} - {type(id)} in {citzen['id']} - {type(citzen['id'])}")
             # If citizen is found, update their data
             if citzen["id"] == id:
                 citzen.update(updated_data)
@@ -144,6 +149,8 @@ def edit_citzen(id: str):
         return make_response(jsonify({"Msg": "Citizen ID not found"}), 404)
 
 # ----------------------------------------------------------------------------
+
+
 
 # Operation 4: Delete citizen ------------------------------------------------
 @api.route('/delete_citzen/<id>', methods=['DELETE'])
@@ -161,7 +168,6 @@ def delete_citzen(id: str):
 
         # Search for the citizen by ID
         for index, citzen in enumerate(citzens):
-            print(f"Searching {id} - {type(id)} in {citzen['id']} - {type(citzen['id'])}")
             # If citizen is found, remove them from the list
             if citzen["id"] == id:
                 citzens.pop(index)
@@ -172,6 +178,8 @@ def delete_citzen(id: str):
         return make_response(jsonify({"Msg": "Citizen ID not found"}), 404)
 
 # ----------------------------------------------------------------------------
+
+
 
 # Start the Flask server -----------------------------------------------------
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import requests, requests.auth
 
-# Functions used in the main code --------------------------------------------
+# Functions used in the main script --------------------------------------------
 
 # Function to build authentication credentials
 def build_creds() -> requests.auth.HTTPBasicAuth:
@@ -40,10 +40,12 @@ def choose_option() -> int:
             if choice in range(1, 6):
                 return choice
             else:
-                print("Invalid option, please choose a number between 1 and 5.")
+                print("Invalid option, please choose a number between 1 and 5")
         except ValueError:
             print("Please enter a valid number.")
 # ----------------------------------------------------------------------------
+
+
 
 # Start of the main script ---------------------------------------------------
 if __name__ == "__main__":
@@ -57,6 +59,8 @@ if __name__ == "__main__":
 
         # Get user's choice of operation
         operation_id: int = int(choose_option())
+
+
 
         # Operation 1 -> Add a new citizen -------------------------------------
         if operation_id == 1:
@@ -78,6 +82,8 @@ if __name__ == "__main__":
                 print(f"Error: {response.status_code}")
         # ----------------------------------------------------------------------------
 
+
+
         # Operation 2 -> Get and display all citizens -------------------------
         elif operation_id == 2:
             # Send GET request to retrieve all citizens
@@ -93,6 +99,8 @@ if __name__ == "__main__":
             else:
                 print(f"Error: {response.status_code}")
         # ----------------------------------------------------------------------------
+
+
 
         # Operation 3 -> Edit an existing citizen by ID -----------------------
         elif operation_id == 3:
@@ -118,6 +126,8 @@ if __name__ == "__main__":
                 print(f"Error: {response.status_code}")
         # ----------------------------------------------------------------------------
 
+
+
         # Operation 4 -> Delete a citizen by ID --------------------------------
         elif operation_id == 4:
             # Get the citizen ID to be deleted
@@ -137,11 +147,15 @@ if __name__ == "__main__":
                 print(f"Error: {response.status_code}")
         # ----------------------------------------------------------------------------
 
+
+
         # Operation 5 -> Quit -------------------------------------------------
         elif operation_id == 5:
             # Exit the program
             break
         # ----------------------------------------------------------------------------
+
+
 
         # Wait for user input before showing the menu again
         input("\n")
