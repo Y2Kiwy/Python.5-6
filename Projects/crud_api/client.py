@@ -58,7 +58,7 @@ if __name__ == "__main__":
         BASE_URL: str = "https://127.0.0.1:8085"
 
         # Get user's choice of operation
-        operation_id: int = int(choose_option())
+        operation_id: int = choose_option()
 
 
 
