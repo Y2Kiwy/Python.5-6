@@ -1,6 +1,6 @@
 import requests, requests.auth
 
-# Functions used in the main script --------------------------------------------
+# Functions used in the main script ------------------------------------------
 
 # Function to build authentication credentials
 def build_creds() -> requests.auth.HTTPBasicAuth:
@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
 
 
-        # Operation 1 -> Add a new citizen -------------------------------------
+        # Operation 1 -> Add a new citizen -----------------------------------
         if operation_id == 1:
             # Get citizen data from the user
             data: dict = build_data()
@@ -80,11 +80,11 @@ if __name__ == "__main__":
                 print("Request successfully sent")
             else:
                 print(f"Error: {response.status_code}")
-        # ----------------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
 
 
-        # Operation 2 -> Get and display all citizens -------------------------
+        # Operation 2 -> Get and display all citizens ------------------------
         elif operation_id == 2:
             # Send GET request to retrieve all citizens
             response: requests.Response = requests.get(
@@ -98,11 +98,11 @@ if __name__ == "__main__":
                 print("Citzens:\n", response.json())
             else:
                 print(f"Error: {response.status_code}")
-        # ----------------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
 
 
-        # Operation 3 -> Edit an existing citizen by ID -----------------------
+        # Operation 3 -> Edit an existing citizen by ID ----------------------
         elif operation_id == 3:
             # Get the citizen ID to be modified
             input_id: str = input("\nEnter the user ID whose values you want to modify: ")
@@ -124,11 +124,11 @@ if __name__ == "__main__":
                 print(f"Data successfully updated: {response.status_code}")
             else:
                 print(f"Error: {response.status_code}")
-        # ----------------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
 
 
-        # Operation 4 -> Delete a citizen by ID --------------------------------
+        # Operation 4 -> Delete a citizen by ID ------------------------------
         elif operation_id == 4:
             # Get the citizen ID to be deleted
             input_id: str = input("\nEnter the user ID to delete: ")
@@ -145,15 +145,15 @@ if __name__ == "__main__":
                 print(f"Citzen successfully deleted: {response.status_code}")
             else:
                 print(f"Error: {response.status_code}")
-        # ----------------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
 
 
-        # Operation 5 -> Quit -------------------------------------------------
+        # Operation 5 -> Quit ------------------------------------------------
         elif operation_id == 5:
             # Exit the program
             break
-        # ----------------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
 
 
