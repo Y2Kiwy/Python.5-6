@@ -17,7 +17,7 @@ users: list[dict] = [
         "username": "basic",
         "password": "basic01",
         "rights": {
-            "add_citzen": True,
+            "add_citzen": False,
             "view_citzens": True,
             "edit_citzen": False,
             "delete_citzen": False

@@ -2,6 +2,7 @@ import requests, requests.auth
 
 # Functions used in the main script ------------------------------------------
 
+# Functions used in the main script --------------------------------------------
 # Function to build authentication credentials
 def build_creds() -> requests.auth.HTTPBasicAuth:
     # Prompt user to input username and password
@@ -50,17 +51,18 @@ def choose_option() -> int:
 # Start of the main script ---------------------------------------------------
 if __name__ == "__main__":
 
-    # Build authentication credentials
-    auth_creds: requests.auth.HTTPBasicAuth = build_creds()
-
     while True:
+
+        # Force the user to authenticate before choosing the operation to execute
+        if not auth_creds.username or not  auth_creds.password:
+            auth_creds: requests.auth.HTTPBasicAuth = build_creds()
+            continue
+
         # Base URL of the REST API
         BASE_URL: str = "https://127.0.0.1:8085"
 
         # Get user's choice of operation
         operation_id: int = choose_option()
-
-
 
         # Operation 1 -> Add a new citizen -----------------------------------
         if operation_id == 1:
@@ -82,8 +84,6 @@ if __name__ == "__main__":
                 print(f"Error: {response.status_code}")
         # --------------------------------------------------------------------
 
-
-
         # Operation 2 -> Get and display all citizens ------------------------
         elif operation_id == 2:
             # Send GET request to retrieve all citizens
@@ -99,8 +99,6 @@ if __name__ == "__main__":
             else:
                 print(f"Error: {response.status_code}")
         # --------------------------------------------------------------------
-
-
 
         # Operation 3 -> Edit an existing citizen by ID ----------------------
         elif operation_id == 3:
@@ -126,8 +124,6 @@ if __name__ == "__main__":
                 print(f"Error: {response.status_code}")
         # --------------------------------------------------------------------
 
-
-
         # Operation 4 -> Delete a citizen by ID ------------------------------
         elif operation_id == 4:
             # Get the citizen ID to be deleted
@@ -146,8 +142,6 @@ if __name__ == "__main__":
             else:
                 print(f"Error: {response.status_code}")
         # --------------------------------------------------------------------
-
-
 
         # Operation 5 -> Quit ------------------------------------------------
         elif operation_id == 5:
