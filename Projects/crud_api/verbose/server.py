@@ -1,7 +1,7 @@
 from flask import Flask, request, make_response, jsonify
 import base64
 
-# Define a list of users with their credentials and permissions
+# Define a list of users with their credentials and permissions, need to be exported to a JSON file
 users: list[dict] = [
     {
         "username": "admin",

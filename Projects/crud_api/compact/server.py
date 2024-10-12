@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response, jsonify
 import base64
 
+# need to be exported to a JSON file
 users: list[dict] = [
     {
         "username": "admin",
